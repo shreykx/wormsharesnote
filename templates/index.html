@@ -13,14 +13,14 @@
 
 </head>
 
-<body>
+<body class="">
     <div class="w-screen h-screen fixed backdrop-blur-xl bg-transparent top-0 left-0 flex items-center justify-center">
         <div class="absolute top-4 right-4">
             <span
                 class="material-symbols-outlined cursor-pointer  text-4xl text-blue-600 active:opacity-[0.5] select-none ">
                 upload
             </span>
-            <span
+            <span id="copy_text"
                 class="material-symbols-outlined cursor-pointer text-4xl text-green-600 active:opacity-[0.5] select-none ">
                 content_copy
             </span>
@@ -32,12 +32,19 @@
         </div>
 
         <div class="">
-            <textarea name="task_put" id="task_put" onload="(e)=> {e.target.value = ''}"
+            <textarea name="task_put" id="task_put"
                 class="text-4xl font-bold no-scrollbar text-center h-auto resize-none overflow-hidden outline-none"
                 oninput="this.style.height = ''; this.style.height = this.scrollHeight + 'px'"
                 placeholder="Text Here...">
 
             </textarea>
+        </div>
+    </div>
+
+
+    <div class="notification-holder fixed bottom-0 flex items-left justify-left p-2 hidden w-screen">
+        <div class="bg-gray-800 px-4 py-2 rounded shadow-xl">
+            <span class="text-holder text-gray-100 text-sm montserrat">Link copied to clipboard!</span>
         </div>
     </div>
 

@@ -7,8 +7,8 @@ collection = db['notes']
 
 
 
-def insertNote(id, note):
-    collection.insert_one({"id" : id, "note" : note})
+def insertNote(id, note, font):
+    collection.insert_one({"id" : id, "note" : note, "font" : font})
     return True
 def getNote(id):
     note = collection.find_one({"id" : id})

@@ -14,9 +14,10 @@ def home():
 def post_note():
     data = request.get_json() # for json format
     note = data.note
+    font = data.font
     try:
         id = get_random_string()
-        insertNote(id, note)
+        insertNote(id, note, font)
 
         return jsonify({'id': id}), 200
     except:
