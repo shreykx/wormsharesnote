@@ -13,8 +13,11 @@ def home():
 @app.route('/post/note', methods=['POST'])
 def post_note():
     data = request.get_json() # for json format
-    note = data.note
-    font = data.font
+    note = data['note']
+    font = data['font']
+
+    if (not ((note.strip()) or font.strip())):
+        return jsonify({'error': 'Note and font cannot be empty'}), 400
     try:
         id = get_random_string()
         insertNote(id, note, font)
@@ -28,8 +31,12 @@ def post_note():
 @app.route('/note/<id>', methods=['GET'])
 def get_note(id):
     try:
-        note = get_note(id)
-        return render_template('note.html', note=note)
+        data = getNote(id)
+
+        note = data['note']
+        font = data['font']
+        
+        return render_template('note.html', note=note, font=font)
     except:
         return render_template('notfound.html')
 

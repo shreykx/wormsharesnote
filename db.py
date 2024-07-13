@@ -13,6 +13,6 @@ def insertNote(id, note, font):
 def getNote(id):
     note = collection.find_one({"id" : id})
     if note:
-        return note['note']
+        return {"note" : note['note'], "font" : note['font']}
     else:
         return None
