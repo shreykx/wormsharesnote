@@ -1,1 +1,1 @@
-# task manager lol
+# Share a note for someone special
